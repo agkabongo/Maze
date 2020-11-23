@@ -35,7 +35,7 @@ for (let sign of board) {
 
         } else if (sign === 'T') {
             let tresor = document.createElement("div")
-            boxes.classList.add('path')
+            boxes.classList.add('path', 'fin')
             tresor.className = 'tresor'
             tresor.innerHTML = "&#128970;"
             boxes.style.backgroundColor = "rgb(0,150,150)";
@@ -108,4 +108,7 @@ function logKey(e) {
             y = y - 13
         }
     }
+    
+    if(newBox[y].classList.contains('fin') === true)
+    alert("Tu es sorti du labyrinthe")
 }
