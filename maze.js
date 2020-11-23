@@ -31,13 +31,14 @@ for (let sign of board) {
             let player = document.createElement("div")
             boxes.classList.add('path')
             player.className = 'player'
-            boxes.style.backgroundColor = "rgb(250,0,0)"
+            boxes.style.backgroundColor = "rgb(0,150,150)"
             boxes.appendChild(player)
 
         } else if (sign === 'T') {
             let tresor = document.createElement("div")
             boxes.classList.add('path')
             tresor.className = 'tresor'
+            tresor.innerHTML = "&#128970;"
             boxes.style.backgroundColor = "rgb(0,150,150)";
             boxes.appendChild(tresor)
         }
@@ -60,8 +61,7 @@ function logKey(e) {
 
     if (e.keyCode === 37) { // ArrowLeft
         // if class contain wall "*" on fait rien if class contain path ".", then append child to board[y--]
-        console.log('Flèche Gauche')
-
+        
         if (newBox[y - 1].classList.contains('wall') === true) {
             console.log("Tu as un mur à gauche")
 

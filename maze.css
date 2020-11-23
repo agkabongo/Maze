@@ -28,7 +28,7 @@ body {
 }
 
 .tresor {
-    width: 15px;
-    height: 15px;
-    background-color: #8d3a89;
+    font-size: 33px;
+    color : yellow;
+    
 }
