@@ -13,7 +13,6 @@ board.split("\n");
 board.split('');
 
 //Creation array multilines
-
 console.log(board)
 /*createBlankMaze()*/
 
@@ -46,22 +45,20 @@ for (let sign of board) {
     }
 }
 
-i = 16
-const grid = 13
 
-let x, y;
-x = x * grid
-y = 14
+
 /* DISPLAY THE KEY PRESSED ON */
 document.addEventListener('keydown', logKey);
+let y = 14;
 
 function logKey(e) {
+
     let newBox = document.querySelectorAll('.box')
     let playerMove = document.querySelector('.player')
 
     if (e.keyCode === 37) { // ArrowLeft
-        // if class contain wall "*" on fait rien if class contain path ".", then append child to board[y--]
-        
+        // if class contain wall "*" on fait rien if class contain path ".", then append child to board[y-1]
+
         if (newBox[y - 1].classList.contains('wall') === true) {
             console.log("Tu as un mur à gauche")
 
@@ -73,7 +70,7 @@ function logKey(e) {
 
 
     } else if (e.keyCode === 39) { //ArrowRight
-        // if class contain wall "*" on fait rien if class contain ".", then append child to board[(x*13)+y]
+        // if class contain wall "*" on fait rien if class contain ".", then append child to board[(y+1]
 
         if (newBox[y].classList.contains('wall') === true) {
             console.log("Tu as un mur à droite")
@@ -86,17 +83,29 @@ function logKey(e) {
 
 
     } else if (e.keyCode === 40) { //ArrowBottom
-        // if class contain wall "*" on fait rien if class contain ".", then append child to board[(x--)*13 + y]
-        console.log('Flèche Bas')
+        // if class contain wall "*" on fait rien if class contain ".", then append child to board[y+13]
+
+        if (newBox[y + 13].classList.contains('wall') === true) {
+            console.log("Tu as un mur à bas")
+        } else if (newBox[y + 13].classList.contains('path') === true) {
+            newBox[y + 13].appendChild(playerMove) //append player to the next div
+            console.log(y)
+            y = y + 13
+        }
+
+
 
 
     } else if (e.keyCode === 38) {
 
         // ArrowUp
-        // if class contain wall "*" on fait rien if class contain ".", then append child to board[(x++)*13 + y]
-        console.log('Flèche Haut')
+        // if class contain wall "*" on fait rien if class contain ".", then append child to board[y-13]
+        if (newBox[y - 13].classList.contains('wall') === true) {
+            console.log("Tu as un mur à bas")
+        } else if (newBox[y - 13].classList.contains('path') === true) {
+            newBox[y - 13].appendChild(playerMove) //append player to the next div
+            console.log(y)
+            y = y - 13
+        }
     }
-
-
-    // CONSOLE LOG THE KEY NUMBER 
 }
