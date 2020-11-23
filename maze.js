@@ -47,7 +47,7 @@ for (let sign of board) {
 
 
 
-/* DISPLAY THE KEY PRESSED ON */
+/* MOVE LITTLE DOT WHEN WE PRESS ON A KEY*/
 document.addEventListener('keydown', logKey);
 let y = 14;
 
@@ -108,7 +108,7 @@ function logKey(e) {
             y = y - 13
         }
     }
-    
-    if(newBox[y].classList.contains('fin') === true)
-    alert("Tu es sorti du labyrinthe")
+
+    if (newBox[y].classList.contains('fin') === true)
+        alert("Tu es sorti du labyrinthe")
 }
