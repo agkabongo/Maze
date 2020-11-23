@@ -29,12 +29,14 @@ for (let sign of board) {
             boxes.style.backgroundColor = "rgb(0,150,150)";
         } else if (sign === 'S') {
             let player = document.createElement("div")
+            boxes.classList.add('path')
             player.className = 'player'
             boxes.style.backgroundColor = "rgb(250,0,0)"
             boxes.appendChild(player)
 
         } else if (sign === 'T') {
             let tresor = document.createElement("div")
+            boxes.classList.add('path')
             tresor.className = 'tresor'
             boxes.style.backgroundColor = "rgb(0,150,150)";
             boxes.appendChild(tresor)
