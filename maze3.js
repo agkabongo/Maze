@@ -26,15 +26,15 @@ for (let sign of board) {
         boxes.className = "box"
         if (sign === '*') {
             boxes.classList.add('wall')
-            boxes.style.backgroundColor = "#535252"
+            boxes.style.backgroundColor = "#a15562"
         } else if (sign === '.') {
             boxes.classList.add('path')
-            boxes.style.backgroundColor = "rgb(0,150,150)";
+            boxes.style.backgroundColor = "#e8e8e8";
         } else if (sign === 'S') {
             let player = document.createElement("div")
             boxes.classList.add('path')
             player.className = 'player'
-            boxes.style.backgroundColor = "rgb(0,150,150)"
+            boxes.style.backgroundColor = "#e8e8e8"
             boxes.appendChild(player)
 
         } else if (sign === 'T') {
@@ -42,7 +42,7 @@ for (let sign of board) {
             boxes.classList.add('path', 'fin')
             tresor.className = 'tresor'
             tresor.innerHTML = "&#128970;"
-            boxes.style.backgroundColor = "rgb(0,150,150)";
+            boxes.style.backgroundColor = "#e8e8e8";
             boxes.appendChild(tresor)
         }
         document.getElementById('maze_container3').appendChild(boxes)
