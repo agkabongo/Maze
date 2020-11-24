@@ -1,5 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     color: #535252;
+    height: 100%;
+    background-color : pink;
+}
+
+.index_container {
+    margin: 12% auto;
+    padding: 30px;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    border : 4px dashed palevioletred;
+}
+
+.container {
+    margin: 1% auto;
+    padding: 30px;
+    width: 75%;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.container > h1 {
+    margin: 10px 0;
+}
+
+
+button {
+    height: 40px;
+    font-family: 'Press Start 2P', cursive;
+    border: none;
+    background-color: #ffc0cb;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color : rgb(165, 82, 241);
 }
 
 #maze_container{
@@ -7,8 +56,23 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     width: calc(14 * 30px);
-    
 }
+
+#maze_container2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(14 * 30px);
+}
+
+#maze_container3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(14 * 30px);
+}
+
+
 
 .box {
     display: flex;
@@ -24,7 +88,7 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 100%;
-    background-color: #f8f8f8;
+    background-color: #CF97A0;
 }
 
 .tresor {

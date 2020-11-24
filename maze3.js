@@ -1,14 +1,18 @@
-const board = `***********.*
-*S.....**.*.T
-*****.....*.*
-*****.***.*.*
-*****.*****.*
-*****.*****.*
-*****.......*
-*****.*******
-*.........***
-*.******...**
-*....********`
+const board = `***.***.***.T
+.S........*.*
+.**.***.*.*..
+..*.*****....
+.**..*.**....
+..**...**.*.*
+..****.******
+.***.********
+..*...*******
+*....********
+**.*.****.***
+****..*.*.***
+****..*.*..**
+****......***
+*************`
 board.split("\n");
 board.split('');
 
@@ -22,15 +26,15 @@ for (let sign of board) {
         boxes.className = "box"
         if (sign === '*') {
             boxes.classList.add('wall')
-            boxes.style.backgroundColor = "#535252"
+            boxes.style.backgroundColor = "#a15562"
         } else if (sign === '.') {
             boxes.classList.add('path')
-            boxes.style.backgroundColor = "rgb(0,150,150)";
+            boxes.style.backgroundColor = "#e8e8e8";
         } else if (sign === 'S') {
             let player = document.createElement("div")
             boxes.classList.add('path')
             player.className = 'player'
-            boxes.style.backgroundColor = "rgb(0,150,150)"
+            boxes.style.backgroundColor = "#e8e8e8"
             boxes.appendChild(player)
 
         } else if (sign === 'T') {
@@ -38,10 +42,10 @@ for (let sign of board) {
             boxes.classList.add('path', 'fin')
             tresor.className = 'tresor'
             tresor.innerHTML = "&#128970;"
-            boxes.style.backgroundColor = "rgb(0,150,150)";
+            boxes.style.backgroundColor = "#e8e8e8";
             boxes.appendChild(tresor)
         }
-        document.getElementById('maze_container').appendChild(boxes)
+        document.getElementById('maze_container3').appendChild(boxes)
     }
 }
 
@@ -50,7 +54,7 @@ for (let sign of board) {
 /* MOVE LITTLE DOT WHEN WE PRESS ON A KEY*/
 document.addEventListener('keydown', logKey);
 let y = 14;
-
+console.log(board[14])
 function logKey(e) {
 
     let newBox = document.querySelectorAll('.box')
@@ -72,9 +76,11 @@ function logKey(e) {
     } else if (e.keyCode === 39) { //ArrowRight
         // if class contain wall "*" on fait rien if class contain ".", then append child to board[(y+1]
 
-        if (newBox[y].classList.contains('wall') === true) {
+        if (newBox[y+1].classList.contains('wall') === true) {
             console.log("Tu as un mur à droite")
-        } else if (newBox[y + 1].classList.contains('path') === true) {
+            console.log(y)
+        } else if (newBox[y].classList.contains('path') === true) {
+            console.log(y)
             newBox[y + 1].appendChild(playerMove) //append player to the next div
             console.log(y)
             y = y + 1
