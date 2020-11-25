@@ -109,6 +109,7 @@ function logKey(e) {
         }
     }
 
-    if (newBox[y].classList.contains('fin') === true)
+    if (newBox[y].classList.contains('fin') === true){
         alert("Tu es sorti du labyrinthe")
+    }
 }
