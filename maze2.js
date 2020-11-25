@@ -151,4 +151,5 @@ function gameTimer() {
 
     // Random delay until heyYou() is called again
     createInterval = setTimeout(gameTimer, 1000)
+     
 }
