@@ -1,3 +1,5 @@
+let min = 0;
+let sec = 0;
 const board = `*****.***.***
 *.S...***.***
 *****...*.***
@@ -45,11 +47,12 @@ for (let sign of board) {
     }
 }
 
-
+gameTimer()
 
 /* MOVE LITTLE DOT WHEN WE PRESS ON A KEY*/
 document.addEventListener('keydown', logKey);
 let y = 14;
+console.log(board[14])
 
 function logKey(e) {
 
@@ -72,9 +75,11 @@ function logKey(e) {
     } else if (e.keyCode === 39) { //ArrowRight
         // if class contain wall "*" on fait rien if class contain ".", then append child to board[(y+1]
 
-        if (newBox[y].classList.contains('wall') === true) {
+        if (newBox[y + 1].classList.contains('wall') === true) {
             console.log("Tu as un mur à droite")
-        } else if (newBox[y + 1].classList.contains('path') === true) {
+            console.log(y)
+        } else if (newBox[y].classList.contains('path') === true) {
+            console.log(y)
             newBox[y + 1].appendChild(playerMove) //append player to the next div
             console.log(y)
             y = y + 1
@@ -110,7 +115,41 @@ function logKey(e) {
     }
 
     if (newBox[y].classList.contains('fin') === true) {
-        alert("Tu es sorti du labyrinthe")
+        alert("Bravo ! Tu es sorti du labyrinthe")
+        clearInterval(createInterval)
+        y = 14;
+        sec = 0
+        min = 0
+        newBox[y].appendChild(playerMove)
+        pressEnter = document.createElement('p')
+        pressEnter.textContent = "PRESS ENTER TO PLAY"
+        timer = document.body.querySelector('.timer')
+        timer.appendChild(pressEnter)
+        document.addEventListener('keypress', reset)
     }
-        
+
+}
+
+function reset(e) {
+    gameTimer()
+    pressEnter.innerHTML = ''
+}
+
+
+function gameTimer() {
+    console.log(min + ' : ' + sec)
+    demo1 = document.getElementById('min')
+    demo2 = document.getElementById('sec')
+
+    demo1.textContent = min
+    demo2.textContent = sec
+    sec++
+    if (sec >= 60) {
+        sec = 0
+        min++
+    }
+
+    // Random delay until heyYou() is called again
+    createInterval = setTimeout(gameTimer, 1000)
+     
 }

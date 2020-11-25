@@ -22,7 +22,7 @@ body {
 .container {
     margin: 1% auto;
     padding: 30px;
-    width: 75%;
+    width: 85%;
     display: flex;
     color: white;
     justify-content: space-between;
@@ -72,7 +72,10 @@ a:hover {
     width: calc(14 * 30px);
 }
 
-
+.timer p {
+    font-size: smaller;
+    text-align: center;
+}
 
 .box {
     display: flex;
